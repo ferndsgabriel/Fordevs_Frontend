@@ -1,0 +1,181 @@
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 14px;
+    box-sizing: border-box;
+    gap: 10px;
+    .more {  
+        margin-top: 10px;
+        button{
+            background-color: transparent;
+            border: none;
+            svg{
+                color: var(--Light);
+                transition: all 1s ease
+            }
+        }
+    &:hover svg{
+        color: var(--White);
+    }
+}   
+.cards{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    gap: 20px;
+    justify-items: center;
+    .card{
+        width: 100%;
+        background-color: var(--Black);
+        height: 320px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: start;
+        border-radius: 4px;
+        padding: 4px;
+        gap: 2px;    
+        overflow: auto;   
+        h2{
+            align-self: center;
+            font-size: 14px;
+        }
+        p{
+            height: 94px;
+            width: 100%;
+            border-bottom: 1px solid var(--Light);
+            border-top: 1px solid var(--Light);
+            font-size: 12px;
+            color: var(--Light);   
+            padding: 2px; 
+            display: block;
+            overflow:hidden          
+        }
+        svg{
+            color: var(--Light);
+            margin-right: 10px;
+            transition: all 1s ease;
+
+            &:hover{
+                color: var(--White);
+            }
+        }
+        .button{
+            background-color: transparent;
+            border: none;
+        }
+        .imgArea{
+            width: 100%;
+            height: auto;
+            transform-origin: top left;
+            height: 160px;
+            overflow: hidden;
+            border-radius: 5px;
+           
+            
+            iframe{
+                width: 400%;
+                height: 400%;
+                transform: scale(0.25);
+                transform-origin: 0 0;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+    
+    
+    }
+}
+
+.modalProject{
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    background-color: var(--Black);
+    border-radius: 5px;
+    
+    .form{
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        gap: 10px;
+        align-items: center;
+        h2{
+            text-transform: uppercase;
+        }
+
+        input, textarea{
+            background-color: transparent;
+            border: 1px solid var(--Light);
+            padding: 8px;
+            width: 94%;
+            border-radius: 5px;
+            resize: none;
+
+        &:focus{
+            border: 1px solid var(--White);
+        }
+        }
+
+        textarea{
+            height: 180px;
+        }
+
+        .buttons{
+            display: flex;
+            gap: 10px;
+            button{
+                color: var(--Light);
+                background-color: var(--Black);
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid var(--Light);
+                
+                &:hover{
+                    border: 1px solid var(--White); 
+                    color: var(--White);
+                }
+            }
+        }
+       
+    }
+}
+
+
+@media (max-width:900px){
+    .container{
+        .cards{
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+}
+
+@media (max-width:668px){
+    .container{
+        .cards{
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+}
+
+@media (max-width:420px){
+    .container{
+        .cards{
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+}

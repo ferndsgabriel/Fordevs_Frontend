@@ -1,0 +1,50 @@
+.header{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    background: rgb(1,7,14);
+    background: linear-gradient(360deg, rgba(1,7,14,1) 4%, rgba(0,0,0,1) 65%);
+    margin-bottom: 24px;
+    .logo{
+        background-color: transparent;
+        display: flex;
+        justify-content: start;
+        img{
+            width: 80%;
+            height: 100%;
+        }   
+    }
+    button{
+        background-color: transparent;
+        border: none;
+        text-transform: uppercase;
+        color: var(--Light);
+        transition:all .5s ease;
+
+        &:hover{
+           color: var(--White);
+        }
+    }
+}
+
+.modal{
+    background-color: var(--Black);
+    width: 300px;
+    height: 300px;
+    padding: 6px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+}
+
+@media (max-width:600px){
+    .logo{
+        width: 150px;
+      
+    }
+}
