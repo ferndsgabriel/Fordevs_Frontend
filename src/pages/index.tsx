@@ -185,10 +185,10 @@ async function handleProjectDelete(e:FormEvent){
                     <h2>{item.name}</h2>
                     <p>{item.description}</p>
                   <div className={style.arrow}>
-                      <Link href={item.git}>
+                      <Link href={item.git} target='_blank'>
                       <AiFillGithub/>
                       </Link>
-                      <Link href={item.code}>
+                      <Link href={item.code} target='_blank'>
                         <AiOutlineArrowRight/>
                       </Link>
                       <button className={style.button} onClick={()=>openModalDelete(item.id)} ><BsTrash3/></button>
