@@ -5,9 +5,12 @@ import Link from 'next/link';
 import {AiOutlineArrowRight, AiFillGithub, AiOutlinePlusCircle } from 'react-icons/ai';
 import Modal from "react-modal";
 import { SetupAPIClient } from '@/services/api';
-import {useState, FormEvent} from "react";
+import {useState, FormEvent, useEffect} from "react";
 import { toast } from "react-toastify";
-import {BsTrash3} from "react-icons/bs"
+import {BsTrash3} from "react-icons/bs";
+import { Loading } from '@/components/loading';
+
+
 type ProjectProps = {
   name:string;
   description:string
@@ -15,13 +18,10 @@ type ProjectProps = {
   code:string
   id:string
 }
-interface ProjectInterface{
-listProject:ProjectProps[]
-}
 
+export default function Home() {
 
-export default function Home({listProject}:ProjectInterface) {
-
+const [project, setProject] = useState<ProjectProps[]>([]);
 const [modalProject, setModalProject] = useState(false);
 const [nome, setNome] = useState('');
 const [gitHub, setGitHub] = useState('');
@@ -32,8 +32,24 @@ const [imageUrl, setImageUrl] = useState('');
 const [modalDelete, setModalDelete] = useState(false);
 const [idProject, setIdProject] = useState('');
 const [userDelete, setUserDelete] = useState('');
-const project = listProject
+const [isLoading, setIsLoading] = useState(true);
 
+useEffect(() => {
+  async function getServer() {
+    const setupApi = SetupAPIClient();
+    const response = await setupApi.get("/project");
+    const listProject = response.data;
+    setProject(listProject);
+    setIsLoading(false);
+  }
+
+  getServer();
+}, []);
+
+
+if (isLoading){
+  return <Loading/>
+}
 
 function refresh(){
   setTimeout(()=>{
@@ -90,7 +106,6 @@ function isNotLink(value: string) {
   const linkRegex = /^(http|https):\/\//;
   return !linkRegex.test(value);
 }
-
 
 
 function openModalDelete(e:string){
@@ -202,14 +217,4 @@ async function handleProjectDelete(e:FormEvent){
     </>
     
   )
-}
-export async function getServerSideProps() {
-  const setupApi = SetupAPIClient();
-  const response = await setupApi.get("/project");
-  console.log(response.data)
-  return {
-    props: {
-      listProject: response.data
-    },
-  };
 }

@@ -1,0 +1,47 @@
+.container{
+    max-width: 30rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+
+    .conteudo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        .spin{
+            svg{
+                font-size: 44px;
+                animation: spinner 1.5s infinite;
+            }
+        }
+
+        .text{
+          
+            p{
+                color: #ffffff9f;
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+
+
+
+@keyframes spinner{
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
