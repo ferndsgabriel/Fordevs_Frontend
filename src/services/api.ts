@@ -5,7 +5,7 @@ export function SetupAPIClient(ctx = undefined){
 
 
     const api = axios.create({
-        baseURL:"api-fordevs.vercel.app",
+        baseURL:"https://api-fordevs.vercel.app",
 
     })
 
