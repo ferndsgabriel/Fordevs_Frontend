@@ -5,7 +5,7 @@ export function SetupAPIClient(ctx = undefined){
 
 
     const api = axios.create({
-        baseURL:"https://apifordevs.onrender.com",
+        baseURL:"api-fordevs.vercel.app",
 
     })
 
