@@ -33,10 +33,10 @@ This is a forDevs project, where anyone who registers can share their project th
     $ npm install
 ``` 
 ```bash
-    # run tailwind css project
+    # start Project
     $ yarn dev
 ```   
 ```bash
-    # run tailwind css project, if use npm
+    # start Project, if use npm
     $ npm run dev
 ``` 
